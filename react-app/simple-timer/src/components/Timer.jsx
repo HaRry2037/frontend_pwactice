@@ -1,10 +1,11 @@
 import { useRef, useState } from "react";
-import Timer from "./components/Timer";
+import TimerDisplay from "./TimerDisplay";
+import TimerControls from "./TimerControls";
 
 
 
 
-const App = () => {
+const Timer = () => {
 
 const timerRef= useRef(null);
 const [time,setTime]=useState(0);
@@ -34,9 +35,10 @@ const resetTimer=()=>{
 
   return ( 
 
-    <div className="max-w-md mx-auto mt-10 p-6 bg-gray-100 rounded-lg shadow-lg text-center">
-      <Timer/>
-
+    <div >
+      <TimerDisplay time={time}/>
+     
+     <TimerControls isRunning={isRunning} onToggle={toggleTimer} onReset={resetTimer}/>
 
 
     </div>
@@ -44,4 +46,4 @@ const resetTimer=()=>{
    );
 }
  
-export default App;
+export default Timer;
